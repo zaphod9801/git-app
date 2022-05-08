@@ -6,13 +6,13 @@ import { BranchItem } from "./BranchItem";
 import { TableHeadBranches } from "./TableHeadBranches";
 
 export function BranchesDetails() {
-    const [branches, setBranches] = useState([]);
-    const location = useLocation();
+    const [branches, setBranches] = useState([]); //Needed const
+    const location = useLocation(); //to receive the info that was sended in RepoItem.jsx
     const { from } = location.state;
 
-    useEffect(() => {
+    useEffect(() => { //Try to get the branches of the specified repository
         document.title = "Git hub branches"
-        API.getBranchesByRepo(from.name, from.owner.login)
+        API.getBranchesByRepo(from.name, from.owner.login) //The from object was the repo object, it contains all repo info
             .then((res) => setBranches(res)
             ).catch(console.log);
     }, []);
@@ -38,12 +38,12 @@ export function BranchesDetails() {
                             <Table variant='striped' colorScheme='teal'>
                                 <TableCaption>Repository Branches</TableCaption>
                                 <Thead>
-                                    <TableHeadBranches />
+                                    <TableHeadBranches /> //The same thing that was in TableHead component in RepoDetails.jsx, check TableHeadBranches.jsx
                                 </Thead>
                                 <Tbody>
-                                    {branches.map(branch => (
-                                        <BranchItem key={branch.id} {...branch} />
-                                    ))}
+                                    {branches.map(branch => ( //Mapping in the array of branches
+                                        <BranchItem key={branch.id} {...branch} /> 
+                                    ))} //Check BranchItem.jsx
                                 </Tbody>
                             </Table>
                         </TableContainer>
