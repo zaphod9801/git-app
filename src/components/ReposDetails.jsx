@@ -41,7 +41,7 @@ export function ReposDetails() {
             <Table variant='striped' colorScheme='teal'>
               <TableCaption>User Repositories</TableCaption>
               <Thead>
-                <TableHead />
+                <TableHead /> //Component that contains the table header, check TableHead.jsx
               </Thead>
               <Tbody>
                 {repos.map(repo => ( //Mapping in the list of repositories, check RepoItem
