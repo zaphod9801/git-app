@@ -1,6 +1,6 @@
 import { Th, Tr, Text } from "@chakra-ui/react";
 
-export function BranchItem(branch) {
+export function BranchItem(branch) { //Function that renders the specified branch needed info
 
     return (
         <>
