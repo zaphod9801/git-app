@@ -2,7 +2,7 @@ import { Th, Tr, Text } from "@chakra-ui/react";
 
 
 
-export function TableHead() {
+export function TableHead() { //Component that renders the table header with the needed table tags
 
     return (
         <>
