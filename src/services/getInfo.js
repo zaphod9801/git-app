@@ -3,10 +3,10 @@ const token = ""
 
 export async function getUserByUsername(username) {
   try {
-    
-  
+
+
     const response = await fetch(`${API_URL}/users/${username}`, {
-    
+
       headers: {
         Authorization: `token ${token}`
       }
@@ -22,10 +22,10 @@ export async function getUserByUsername(username) {
 
 export async function getMailsByUsername() {
   try {
-    
-  
+
+
     const response = await fetch(`${API_URL}/user/emails`, {
-    
+
       headers: {
         Authorization: `token ${token}`
       }
@@ -42,12 +42,12 @@ export async function getMailsByUsername() {
 export async function getReposByUsername(username) {
   try {
     const response = await fetch(`${API_URL}/users/${username}/repos`
-    , {
-    
-      headers: {
-        Authorization: `token ${token}`
+      , {
+
+        headers: {
+          Authorization: `token ${token}`
+        }
       }
-    }
     );
     const data = await response.json();
     return data;
@@ -59,12 +59,12 @@ export async function getReposByUsername(username) {
 export async function getOrgsByUsername() {
   try {
     const response = await fetch(`${API_URL}/user/orgs`
-    , {
-    
-      headers: {
-        Authorization: `token ${token}`
+      , {
+
+        headers: {
+          Authorization: `token ${token}`
+        }
       }
-    }
     );
     const data = await response.json();
     return data;
@@ -73,15 +73,15 @@ export async function getOrgsByUsername() {
   }
 }
 
-export async function getBranchesByRepo(repo,username) {
+export async function getBranchesByRepo(repo, username) {
   try {
     const response = await fetch(`${API_URL}/repos/${username}/${repo}/branches`
-    , {
-    
-      headers: {
-        Authorization: `token ${token}`
+      , {
+
+        headers: {
+          Authorization: `token ${token}`
+        }
       }
-    }
     );
     const data = await response.json();
     return data;
