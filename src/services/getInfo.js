@@ -1,16 +1,5 @@
 const API_URL = "https://api.github.com";
-const token = "INSERT HERE YOUR OWN TOKEN"
-
-
-export async function getAllLaunches() {
-  try {
-    const response = await fetch(`${API_URL}/launches`);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-}
+const token = ""
 
 export async function getUserByUsername(username) {
   try {
@@ -82,4 +71,22 @@ export async function getOrgsByUsername() {
   } catch (error) {
     console.log(error);
   }
+}
+
+export async function getBranchesByRepo(repo,username) {
+  try {
+    const response = await fetch(`${API_URL}/repos/${username}/${repo}/branches`
+    , {
+    
+      headers: {
+        Authorization: `token ${token}`
+      }
+    }
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+
 }

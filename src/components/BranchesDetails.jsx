@@ -2,17 +2,17 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as API from "../services/getInfo";
 import { Box, Flex, Text , Table, TableContainer, Thead, Tr, Th, Tbody, TableCaption, Spacer, Center, Image} from "@chakra-ui/react";
-import { RepoItem } from "./RepoItem";
-import { TableHead } from "./TableHead";
+import { BranchItem } from "./BranchItem";
+import { TableHeadBranches } from "./TableHeadBranches";
 
-export function ReposDetails () {
-    const [repos, setRepos] = useState([]);
+export function BranchesDetails () {
+    const [branches, setBranches] = useState([]);
     const location = useLocation();
     const { from } = location.state;
     
     useEffect (() => {
-        API.getReposByUsername(from.login)
-        .then((res) => setRepos(res)   
+        API.getBranchesByRepo(from.name, from.owner.login)
+        .then((res) => setBranches(res)   
         ).catch(console.log);
     }, []);
     
@@ -22,35 +22,33 @@ export function ReposDetails () {
         <>
      <Center>
      <Flex color='white'>
-        
-     <Box bg="gray.200" pr={8} pt={1} mt={3} borderRadius = "lg"> 
-        <Image m={3} pl={6} src={from.avatar_url} width={100} />
-      </Box>
     
       <Box bg="gray.200" pr={10} pt={5} mt={3} borderRadius = "lg"> 
-      <Text pl={10} pt={5} fontSize="xl" color="gray.500" align="center"> 
-              Username: <strong>{from.login}</strong>
+      <Text pl={10} pt={2} pb={5} fontSize="xl" color="gray.500" align="center"> 
+              Repository: <strong>{from.name}</strong>
             </Text>
       </Box>
      </Flex>
-     </Center>   
+     </Center> 
+     <Center>
      <Flex color='white'>  
-         <Box bg="gray.200" m={4} ml={3} borderRadius = "lg"> 
+         <Box bg="gray.200" m={4} p={2} borderRadius = "lg"> 
              <TableContainer >
                   <Table variant='striped' colorScheme='teal'>
-                    <TableCaption>User Repositories</TableCaption>
+                    <TableCaption>Repository Branches</TableCaption>
                         <Thead>
-                          <TableHead />
+                          <TableHeadBranches />
                         </Thead>
                         <Tbody>
-                          {repos.map(repo => (
-                                        <RepoItem key={repo.id} {...repo}/>
+                          {branches.map(branch => (
+                                        <BranchItem key={branch.id} {...branch} />
                           ))} 
                         </Tbody>
                   </Table>
                 </TableContainer>
             </Box>
-        </Flex>   
+        </Flex>
+        </Center>
         </>
     );
 

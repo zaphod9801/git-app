@@ -61,11 +61,11 @@ export function UserItem ({user, emails, repos, orgs}) {
           </ListItem>
         </List>
         <Link to={`/repos`} state={{from: user}} >
-          <Tag fontSize="md" color="gray.500" mt={2}>
+          <Tag fontSize="md" bg="blue.200" mt={2} mr={1}>
             Repositories: {repos.length}
           </Tag>
         </Link>
-        <Tag fontSize="md" color="gray.500" mt={2}>
+        <Tag fontSize="md" bg="blue.200" mt={2} ml={1}>
         Organizations: {orgs.length}
         </Tag>
       </Box>

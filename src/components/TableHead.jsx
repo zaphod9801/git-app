@@ -2,7 +2,7 @@ import {Th, Tr, Text} from "@chakra-ui/react";
 
 
 
-export function TableHead (repo) {
+export function TableHead () {
      
     return (
         <>
