@@ -25,7 +25,7 @@ export function RepoItem(repo) { //This function renders a single repository inf
                 <Th>
                     <Text fontSize="l" color="gray.500">
                         {repo.branches_url} <Spacer />
-                        <Link to={`/branches`} state={{ from: repo }} mb={2}> //Internal link to the app branches view
+                        <Link to={`/branches`} state={{ from: repo }} mb={2}> //Internal link to the app branches view, the state argument send the repo object to the branches route as "from"
                             <Tag fontSize="md" bg="blue.200">
                                 see more
                             </Tag>
