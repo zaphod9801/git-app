@@ -1,5 +1,5 @@
 const API_URL = "https://api.github.com";
-const token = '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'
+const token = "INSERT HERE YOUR OWN TOKEN"
 
 
 export async function getAllLaunches() {
