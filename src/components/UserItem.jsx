@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 
 
 
-export function UserItem({ user, emails, repos, orgs }) {
+export function UserItem({ user, emails, repos, orgs }) { //This function render the searched user details
 
 
   return (
 
     <>
-      {user.message === "Not Found" ? (
+      {user.message === "Not Found" ? ( //Check if the user exists, if not, displays a error message
 
         <Center>
           <Flex color='white'>
@@ -27,7 +27,7 @@ export function UserItem({ user, emails, repos, orgs }) {
 
       ) : (
 
-        <Table variant='simple' >
+        <Table variant='simple' > //Using table to organize the boxes
           <Center>
             <Tbody>
               <Tr>
@@ -39,7 +39,7 @@ export function UserItem({ user, emails, repos, orgs }) {
 
                   <Box bg="gray.200" p={4} m={4} borderRadius="lg">
 
-                    <List spacing={4}>
+                    <List spacing={4}>  //Using a list to display the user info
 
                       <ListItem>
                         <ListIcon as={BiUserCircle} color='gray.500' />
@@ -62,12 +62,12 @@ export function UserItem({ user, emails, repos, orgs }) {
                     </List>
                     <Link to={`/repos`} state={{ from: user }} >
                       <Tag fontSize="md" bg="blue.200" mt={2} mr={1}>
-                        Repositories: {repos.length}
+                        Repositories: {repos.length}  //Shows how many repositories the searched user have
                       </Tag>
                     </Link>
                     <a href={`https://api.github.com/user/orgs`} target="_blank" rel="noopener noreferrer" mb={2}>
                       <Tag fontSize="md" bg="blue.200" mt={2} ml={1}>
-                        Organizations: {orgs.length}
+                        Organizations: {orgs.length} //Shows how many organizations the authenticated user have
                       </Tag>
                     </a>
                   </Box>
@@ -83,7 +83,7 @@ export function UserItem({ user, emails, repos, orgs }) {
                         <Text fontSize="lg" color="gray.500">
                           Mails:
                         </Text>
-                        <List>
+                        <List>  //Using a list to display all the authenticated user emails
                           {emails.map(email => (
                             <ListItem key={email.id}>
                               <Text fontSize="md" color="gray.500">
