@@ -69,7 +69,7 @@ export function User() {
       ) : (
 
         <section> 
-          <UserItem user={user} emails={emails} repos={repos} orgs={orgs} />
+          <UserItem user={user} emails={emails} repos={repos} orgs={orgs} /> //Render the searched user info, check UserItem.jsx
         </section>
       )
       }
