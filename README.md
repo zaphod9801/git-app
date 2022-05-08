@@ -1,4 +1,4 @@
-# git-app
+# Git-app
 
 This is a simple front-end App built using ReactJS and Vite, consuming the Github API (https://docs.github.com/es/rest).
 
