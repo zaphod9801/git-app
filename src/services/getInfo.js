@@ -1,6 +1,7 @@
 const API_URL = "https://api.github.com";
-const token = import.meta.env.VITE_REACT_APP_GITTOKEN;
+const token = import.meta.env.VITE_REACT_APP_GITTOKEN;  //Needed authentication token for using the Github API, it gets it from a .env file
 
+//This functions try to get the needed info in the Github API and converts it to a valid format
 export async function getUserByUsername(username) {
   try {
 
