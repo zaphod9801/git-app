@@ -1,5 +1,5 @@
 const API_URL = "https://api.github.com";
-const token = ""
+const token = import.meta.env.VITE_REACT_APP_GITTOKEN;
 
 export async function getUserByUsername(username) {
   try {
