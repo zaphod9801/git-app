@@ -9,7 +9,9 @@ import { UserItem } from "./UserItem";
 
 export function  User () {
     const [user,setUser] = useState({});
+    const [emails,setEmails] = useState([])
     const [repos, setRepos] = useState([]);
+    const [orgs, setOrgs] = useState([]);
     
     const usernameRef = useRef();
     
@@ -27,7 +29,9 @@ export function  User () {
         }
       });
       
-      API.getReposByUsername(username).then(setRepos)
+      API.getMailsByUsername().then(setEmails);
+      API.getReposByUsername(username).then(setRepos);
+      API.getOrgsByUsername().then(setOrgs);
 
 
       usernameRef.current.value = null;
@@ -61,7 +65,7 @@ export function  User () {
                     ): (
               
                           <section>
-                              <UserItem user={user} repos={repos}/>    
+                              <UserItem user={user} emails={emails} repos={repos} orgs={orgs}/>    
                           </section>
                     )
             }

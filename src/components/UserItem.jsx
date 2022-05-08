@@ -1,4 +1,4 @@
-import {Box, Flex, Text, Spacer, Tag, Button, Icon, Image, ListItem, ListIcon, List, Center} from "@chakra-ui/react";
+import {Box, Flex, Text, Spacer, Tag, Button, Icon, Image, ListItem, ListIcon, List, Center, Tbody, Table, Tr} from "@chakra-ui/react";
 import {BiUserCircle, BiMailSend, BiCalendarCheck} from "react-icons/bi"
 import {FiTwitter} from "react-icons/fi"
 import {Link} from "react-router-dom";
@@ -7,7 +7,7 @@ import { useState, useEffect} from "react";
 
 
 
-export function UserItem ({user, repos}) {
+export function UserItem ({user, emails, repos, orgs}) {
      
     
     return (
@@ -27,8 +27,11 @@ export function UserItem ({user, repos}) {
        
     
     ): (
-    
-      <Center>  
+     
+      <Table variant='simple' >
+      <Center> 
+      <Tbody>
+      <Tr>
       <Flex color='white'>
       
       <Box bg="gray.200" p={4} m={4} borderRadius = "lg"> 
@@ -57,23 +60,45 @@ export function UserItem ({user, repos}) {
               Twitter: <strong>{user.twitter_username}</strong>
             </Text>
           </ListItem>
-          <ListItem>
-            <ListIcon as={BiMailSend} color='gray.500' />
-            <Text fontSize="lg" color="gray.500"> 
-              Mail: <strong>{user.email}</strong>
-            </Text>
-          </ListItem>
         </List>
-        [" "]
-        <Text fontSize="md" color="gray.500">
-        Repositorios: {repos.length}
-        </Text>
-        
+          
+        <Tag fontSize="md" color="gray.500" mt={2}>
+        Repositories: {repos.length}
+        </Tag>
+        <Tag fontSize="md" color="gray.500" mt={2}>
+        Organizations: {orgs.length}
+        </Tag>
       </Box>
       
-     </Flex> 
+     </Flex>
+     </Tr>
+     <Tr>
+     <Flex color='white'>
+     <Box bg="gray.200" m={4} borderRadius = "lg" p={10} pr={180}> 
+     <List>
+     <ListItem>
+            <ListIcon as={BiMailSend} color='gray.500' />
+            <Text fontSize="lg" color="gray.500"> 
+              Mails: 
+            </Text>
+            <List>
+            {emails.map(email => (
+              <ListItem key={email.id}>
+              <Text fontSize="md" color="gray.500"> 
+                - {email.email}
+              </Text>
+              </ListItem>  
+            ))}
+            </List>
+          </ListItem>
+     </List>
+     </Box>
+     </Flex>
+     </Tr>
+     </Tbody>
+     </Center>
+     </Table>
       
-  </Center>
     
     )
     
