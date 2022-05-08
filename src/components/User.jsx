@@ -17,7 +17,7 @@ export function User() {
 
   const handleUserSearch = () => { //Function that try to ask for the written username in the search bar in the Github API
     var usernameP = usernameRef.current.value;
-    const username = usernameP.split(' ').join('');
+    const username = usernameP.split(' ').join(''); //Treatment to usernames with spaces
     if (user === '') return;
 
     setUser(async (req, res) => {
