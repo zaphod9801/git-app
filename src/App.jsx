@@ -13,7 +13,7 @@ export function App() {
       
       <Routes>
         <Route path="/" element={<User />} />
-        <Route path="launch/:launchId" element={<ReposDetails />} />
+        <Route path="repos" element={<ReposDetails />} />
         <Route path="rockets/:rocketId" element={<RocketDetails />} />
       </Routes>
     </>

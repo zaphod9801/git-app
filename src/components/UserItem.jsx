@@ -1,8 +1,7 @@
-import {Box, Flex, Text, Spacer, Tag, Button, Icon, Image, ListItem, ListIcon, List, Center, Tbody, Table, Tr} from "@chakra-ui/react";
+import {Box, Flex, Text, Tag, Image, ListItem, ListIcon, List, Center, Tbody, Table, Tr} from "@chakra-ui/react";
 import {BiUserCircle, BiMailSend, BiCalendarCheck} from "react-icons/bi"
 import {FiTwitter} from "react-icons/fi"
 import {Link} from "react-router-dom";
-import { useState, useEffect} from "react";
 
 
 
@@ -61,10 +60,11 @@ export function UserItem ({user, emails, repos, orgs}) {
             </Text>
           </ListItem>
         </List>
-          
-        <Tag fontSize="md" color="gray.500" mt={2}>
-        Repositories: {repos.length}
-        </Tag>
+        <Link to={`/repos`} state={{from: user}} >
+          <Tag fontSize="md" color="gray.500" mt={2}>
+            Repositories: {repos.length}
+          </Tag>
+        </Link>
         <Tag fontSize="md" color="gray.500" mt={2}>
         Organizations: {orgs.length}
         </Tag>
