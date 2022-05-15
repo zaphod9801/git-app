@@ -1,5 +1,24 @@
-const API_URL = "https://api.github.com";
-const token = import.meta.env.VITE_REACT_APP_GITTOKEN;
+const API_URL = "http://localhost:3002/graphql";
+import { gql, useQuery, useMutation } from '@apollo/client';
+
+
+
+
+export async function loginUser(email, password) {
+
+  try {
+
+
+    const login = gql`{
+      
+    
+    
+    }`
+  } catch (error) {
+    console.log(error);
+  }
+
+}
 
 export async function getUserByUsername(username) {
   try {

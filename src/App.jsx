@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import { User } from "./components/User";
-import { ReposDetails } from "./components/ReposDetails";
-import { BranchesDetails } from "./components/BranchesDetails";
+import { Signup } from "./components/Signup";
+import { Login } from "./components/Login";
+import { Home } from "./components/Home";
 
 
 export function App() {
@@ -9,9 +9,9 @@ export function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<User />} />
-        <Route path="repos" element={<ReposDetails />} />
-        <Route path="branches" element={<BranchesDetails />} />
+        <Route path="/" element={<Login />} />
+        <Route path="registro" element={<Signup />} />
+        <Route path="inicio" element={<Home />} />
       </Routes>
     </>
 
